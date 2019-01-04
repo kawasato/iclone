@@ -2,15 +2,19 @@
     <% if @blog.errors.any? %>
       <div id="error_explanation">
         <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
-        <ul>
-  
-        <% @blog.errors.full_messages.each do |msg| %>
+        <ul><% @blog.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
-        <% end %>
+          <% end %>
         </ul>
       </div>
     <% end %>
   
+    <div class="blog_image">
+      <%= form.label :blog_image %>
+      <%= image_tag(@blog.blog_image) if @blog.blog_image.present? %>
+      <%= form.file_field :blog_image %>
+      <%= form.hidden_field :blog_image_cache %>
+    </div>
     <div class="blog_title">
       <%= form.label :title %>
       <%= form.text_field :title %>

@@ -1,3 +1,9 @@
 <h1>詳細画面</h1>
+<% if @blog.blog_image.url.present? %>
+    <p class = "blog_image">
+        <strong>画像:</strong>
+            <%= image_tag @blog.blog_image.url %>
+    </p>
+<% end %>
 <p>タイトル: <%= @blog.title %></p>
 <p>内容: <%= @blog.content %></p>
