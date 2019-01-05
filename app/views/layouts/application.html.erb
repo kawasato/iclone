@@ -3,12 +3,39 @@
   <head>
     <title>Iclone</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <div class="container">
+        <ul class="row">
+          <li class="col-sm-2 col-md-2"><a href="/blogs/new">NewPosts</a></li>
+          <li class="col-sm-2 col-md-2"><a href="/blogs">Home</a></li>
+          <% if logged_in? %>
+            <li><%= link_to "Profile", user_path(current_user.id) %></li>
+            <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_path %></li>
+            <li><%= link_to "Login", new_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+
+
+  <%= yield %>
+
+    <footer>
+      <p>201808期</p>
+      <p>川崎智美</p>
+    </footer>
   </body>
 </html>
