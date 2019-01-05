@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
     def create
         Blog.create(blog_params)
         if @blog.save
+            BlogMailer.blog_mail(@blog).deliver
             redirect_to blogs_path,notice:" 新規投稿しました！"
         else
             render'new'
