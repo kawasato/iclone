@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update]
+    
     def new
         @user = User.new
     end
@@ -27,6 +28,12 @@ class UsersController < ApplicationController
             render 'edit'
         end
     end
+
+    def favorite
+        @user = User.find(params[:id])
+        @favorites_blogs = @user.favorites
+    end
+
 
     private
 

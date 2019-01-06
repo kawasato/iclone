@@ -51,6 +51,11 @@ class BlogsController < ApplicationController
         end
     end 
 
+    def favorite
+        @user = User.find(params[:id])
+        @favorites_blogs = @user.favorites
+    end
+
     private
 
     def blog_params

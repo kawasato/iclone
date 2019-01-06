@@ -1,0 +1,11 @@
+<h2>お気に入りブログ</h2>
+<% @user.favorite_blogs.each do |blog| %>
+    <div class="col-xs-12 col-md-6 blog-panel">
+        <h3>タイトル：<%= blog.title %></h3>
+        <p>内容：<%= blog.content %></p>
+        <p>投稿者：<%= blog.user.name %></p>
+        <div class="blog-links">
+            <%= link_to'詳細を確認する',blog_path(blog.id) %>
+        </div>
+    </div>
+<% end %>
