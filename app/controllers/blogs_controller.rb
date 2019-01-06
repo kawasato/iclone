@@ -14,7 +14,8 @@ class BlogsController < ApplicationController
     end
 
     def create
-        Blog.create(blog_params)
+        @blog = Blog.new(blog_params)
+        @blog.user_id = current_user.id
         if @blog.save
             BlogMailer.blog_mail(@blog).deliver
             redirect_to blogs_path,notice:" 新規投稿しました！"
@@ -24,6 +25,7 @@ class BlogsController < ApplicationController
     end
 
     def show
+        @favorite = current_user.favorites.find_by(blog_id: @blog.id)
     end
 
     def edit
@@ -36,6 +38,7 @@ class BlogsController < ApplicationController
 
     def confirm
         @blog = Blog.new(blog_params)
+        @blog.user_id = current_user.id
         render :new if @blog.invalid?
     end
 
@@ -51,7 +54,7 @@ class BlogsController < ApplicationController
     private
 
     def blog_params
-        params.require(:blog).permit(:title, :content)
+        params.require(:blog).permit(:title, :content,:blog_image,:blog_image_cache)
     end
 
     def set_blog
