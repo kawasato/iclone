@@ -10,24 +10,31 @@
   </div>
   <% end %>
   <% end %>
-  
-<%= form_with(model: @user, local: true) do |f| %> 
+
+  <%= form_with(model: @user, local: true) do |f| %> 
+    <div class="user_account"> 
     <%= f.label :user_image %>
     <%= image_tag(@user.user_image) if @user.user_image.present? %>
     <%= f.file_field :user_image %>
-    <%= f.hidden_field :user_image_cache %><%= f.label :image %> 
-    
+    <%= f.hidden_field :user_image_cache %>
+    </div>
+    <div class="user_account">
     <%= f.label :name %>
     <%= f.text_field :name %>
-
+    </div>
+    <div class="user_account">
     <%= f.label :email %>
     <%= f.email_field :email %>
-
+    </div>
+    <div class="user_account">
     <%= f.label :password %>
     <%= f.password_field :password %>
-
+    </div>
+    <div class="user_account">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
-
+    </div>
+    <div class="user_acount">
     <%= f.submit "Create my account" %>
+    </div>
 <% end %>
