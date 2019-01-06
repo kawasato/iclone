@@ -1,3 +1,111 @@
-// Place all the styles related to the blogs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html{
+    position: relative;
+    min-height: 100%;
+    text-align: center;
+}
+
+
+li{
+    list-style: none;
+    margin-top: 20px;
+    text-align: left;
+}
+body {
+    height: 100%;
+ }
+
+
+.header{
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#title_image {
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+}
+
+h1{
+    clear: both;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+h2{
+    margin: 0 auto;
+}
+
+.blog_image {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.blog_title {
+    padding: 10px; 
+}
+
+.blog-links {
+    color: darkslategrey;
+    background-color: white;
+}
+
+.blog-links2 {
+    ddisplay: inline-block;
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #9ec34b;
+    font-size: 8px;
+    color: #9ec34b;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .4s;
+}
+.blog-make {
+    background-color: white;
+    color: darkblue;  
+}
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 5px #668ad8;
+    border: dashed 1px #FFF;
+    margin: 100px;
+}
+
+.btn :hover{
+    text-decoration: none;
+    border: dotted 1px #FFF;
+}
+#btn a { 
+    color:white;
+}
+.btn2 {
+    padding: 20px;
+}
+
+.blog-panel{ 
+    background-color: #FFF;
+    margin-top: 10px;
+}
+
+footer {
+    width: 100%;
+    background-color:#32f198;
+    padding: 20px 0 10px 0;
+    color: white;
+    margin: auto;
+    padding-bottom: 10px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+}
