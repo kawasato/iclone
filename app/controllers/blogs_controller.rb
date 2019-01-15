@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
     before_action :set_blog, only: [:show, :edit, :update, :destroy]
     before_action :require_login, only:[:edit, :destroy, :show, :new, :index]
+
     def index
         @blogs = Blog.all
     end
@@ -51,10 +52,15 @@ class BlogsController < ApplicationController
         end
     end 
 
-    def favorite
-        @user = User.find(params[:id])
-        @favorites_blogs = @user.favorites
+    def search
+        blog_search = Blog.new(params_blog_search)
+        @blogs = blog_search.execute
     end
+
+    #def favorite 
+        #@user = User.find(params[:id])
+        #@favorites_blogs = @user.favorites
+    #end
 
     private
 
@@ -71,4 +77,8 @@ class BlogsController < ApplicationController
             redirect_to new_session_path,notice:"ログインしてください"
         end
     end
+
+    def params_blog_search
+        params.permit(:search_blog)
+      end
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :sessions, only:[:new, :create, :destroy]
   get'/tops',to:'tops#top'
   root 'tops#top'
-
+  get '/blogs/search', to: 'blogs#search'
 
   resources :blogs do
     collection do

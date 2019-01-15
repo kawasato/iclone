@@ -1,0 +1,20 @@
+<%= form_tag('/blogs/search', method: :get) do %>
+    <%= label_tag :名前 %>
+    <%= text_field_tag :search_blog %>
+    <%= submit_tag '検索' %>
+  <% end %>
+  <table>
+    <tbody>
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>年齢</th>
+        </tr>
+      </thead>
+      <% @blogs.each do |blog| %>
+        <tr>
+          <td><%= blog.title %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

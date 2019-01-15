@@ -1,5 +1,7 @@
 <h1>投稿一覧</h1>
 <p><%= notice %></p> 
+<%= link_to'検索する',blogs_search_path, class: "blog-links2" %>
+
 
 <div class="row">
     <% @blogs.each do |blog| %>
