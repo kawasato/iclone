@@ -27,6 +27,7 @@
         </div>
     <% end %>
     </div>
+    <%= paginate @blogs %>
     <div class="btn btn-xs">
         <h2 id="btn"><%= link_to'新しくブログを投稿する',new_blog_path %></h2>
     </div>

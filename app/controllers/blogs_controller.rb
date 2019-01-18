@@ -1,9 +1,10 @@
 class BlogsController < ApplicationController
     before_action :set_blog, only: [:show, :edit, :update, :destroy]
     before_action :require_login, only:[:edit, :destroy, :show, :new, :index]
-
+    PER = 8
+    
     def index
-        @blogs = Blog.all
+        @blogs = Blog.page(params[:page]).per(PER)
     end
 
     def new
